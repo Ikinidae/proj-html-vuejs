@@ -100,12 +100,21 @@
               </div>
             </div>
           </b-col>
-
           <b-col cols="2">1</b-col>
         </b-row>
       </b-container>
+
+      <div id="all_latest_news">
+        <a href="">VIEW ALL LATEST NEWS</a>
+      </div>
     </section>
 
+    <section id="quote">
+      <p>"I just listened to it and said to myself, "Man, I really love this album." Still, today, it just sounds so fresh. It sounds full of ideas. These guys knew what they were doing. They're good. And they're inventive. I haven't heard anything this year that's as inventive. I don't really expect to."</p>
+      <a href="" id="play_button">
+        <font-awesome-icon id="font_awesome_play" icon="fa-solid fa-circle-play" />
+      </a>
+    </section>
   </main>
 </template>
 
@@ -158,7 +167,6 @@ export default {
   height: auto;
   background-color: #252a33;
   padding-top: 60px;
-  padding-bottom: 50px;
 
   h1 {
     color: white;
@@ -176,6 +184,7 @@ export default {
   p {
     color: #aeaeaf;
     font-size: 13px;
+    margin-bottom: 50px;
   }
 
   .single_new {
@@ -216,5 +225,44 @@ export default {
     }
   }
 
+  #all_latest_news {
+    background-color: #eb4b54;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    a {
+      color: white;
+      font-size: 12px;      
+      text-decoration: none;
+      font-weight: bolder;
+    }
+  }
+}
+
+#quote {
+  background-image: url(../assets/home-testimonial-parallax.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+  color: white;
+  text-align: center;
+  padding: 200px 400px 300px 400px;
+  font-style: italic;
+  font-size: 20px;
+
+  #play_button {
+    color: #eb4b54;
+    font-size: 50px;
+    text-decoration: none;
+
+    #font_awesome_play {
+      border-radius: 100%;
+      background-color: white;
+    }
+  }
 }
 </style>
