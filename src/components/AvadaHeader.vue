@@ -12,14 +12,24 @@
       </div>
     </div>
 
-    <div v-if="showNav" id="hamburger_menu" class="d-flex flex-column align-items-center">
-      <p class="close_button" @click="showNav = false">
-        X
-      </p>
-      <div id="nav_content">
-        <a class="menu_voice" href="" v-for="(item, i) in menu" :key="i">
-          <h3>{{ item.section }}</h3>
-        </a>
+    <div v-if="showNav" id="hamburger_menu">
+      <!-- logo e close button -->
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <div>
+          <img src="../assets/avada-music-logo.png" alt="Logo Avada Music">
+        </div>
+        <p class="close_button" @click="showNav = false">
+          X
+        </p>
+      </div>
+
+      <!-- elementi nav -->
+      <div id="nav_content" class="d-flex flex-row justify-content-center align-items-center">
+        <div class="d-flex flex-column align-items-center">
+          <a class="menu_voice" href="" v-for="(item, i) in menu" :key="i">
+            <h3>{{ item.section }}</h3>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -99,17 +109,19 @@ header {
     background: #ea4a56;
 
     .close_button {
-      position: absolute;
-      top: 20px;
-      right: 45px;
       text-decoration: none;
       color: white;
       cursor: pointer;
     }
 
-    .menu_voice {
-      text-decoration: none;
-      color: white;
+    #nav_content {
+      padding-top: 100px;
+
+      .menu_voice {
+        text-decoration: none;
+        color: white;
+        margin: 15px;
+      }
     }
   }
 
