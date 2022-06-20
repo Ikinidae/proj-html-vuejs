@@ -6,18 +6,22 @@
         <img src="../assets/avada-music-logo.png" alt="Logo Avada Music">
       </div>
       <div>
-        <font-awesome-icon icon="fa-solid fa-bars" />
+        <p id="nav_button" @click="showNav = true">
+          <font-awesome-icon icon="fa-solid fa-bars" />
+        </p>
       </div>
     </div>
 
-    <!-- <div id="hamburger_menu">
-      <h3>Home</h3>
-      <h3>Meet The Band</h3>
-      <h3>Live Dates</h3>
-      <h3>Latest News</h3>
-      <h3>Albums</h3>
-      <h3>Fans</h3>
-    </div> -->
+    <div v-if="showNav" id="hamburger_menu" class="d-flex flex-column align-items-center">
+      <p class="close_button" @click="showNav = false">
+        X
+      </p>
+      <div id="nav_content">
+        <a class="menu_voice" href="" v-for="(item, i) in menu" :key="i">
+          <h3>{{ item.section }}</h3>
+        </a>
+      </div>
+    </div>
 
     <!-- parte centrale -->
     <div id="jumbotron" class="d-flex flex-column align-items-center">
@@ -36,7 +40,24 @@ export default {
   name: 'AvadaHeader',
   data() {
     return {
-      menu: ["Home", "Meet The Band", "Live Dates", "Latest News", "Albums", "Fans"]
+      menu: [
+        { section: "Home" },
+        { section: "Meet The Band" },
+        { section: "Live Dates" },
+        { section: "Latest News" },
+        { section: "Albums" },
+        { section: "Fans" }
+      ],
+      showNav: false,
+    }
+  },
+  methods: {
+    change_showNav() {
+      if (this.showNav == false) {
+        this.showNav == true;
+      } else {
+        this.showNav == false;
+      }
     }
   }
 }
@@ -57,22 +78,38 @@ header {
     width: 250px;
   }
 
+  #nav_button {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+
   .fa-bars {
     font-size: 30px;
   }
 
-  #hamburger-menu {
+  #hamburger_menu {
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
-    display: none;
     padding: 20px;
     width: 100%;
-    height: 100%;
+    height: 750px;
     background: #ea4a56;
 
-    .active {
-      display: block;
+    .close_button {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu_voice {
+      text-decoration: none;
+      color: white;
     }
   }
 
@@ -108,7 +145,7 @@ header {
     }
 
     .white_button {
-      background:none;
+      background: none;
       border: 1px solid white;
 
       &:hover {
