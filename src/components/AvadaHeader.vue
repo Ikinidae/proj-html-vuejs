@@ -19,7 +19,7 @@
           <img src="../assets/avada-music-logo.png" alt="Logo Avada Music">
         </div>
         <p class="close_button" @click="showNav = false">
-          X
+          &#10005;
         </p>
       </div>
 
@@ -59,15 +59,6 @@ export default {
         { section: "Fans" }
       ],
       showNav: false,
-    }
-  },
-  methods: {
-    change_showNav() {
-      if (this.showNav == false) {
-        this.showNav == true;
-      } else {
-        this.showNav == false;
-      }
     }
   }
 }
@@ -112,6 +103,7 @@ header {
       text-decoration: none;
       color: white;
       cursor: pointer;
+      font-size: 25px;
     }
 
     #nav_content {
