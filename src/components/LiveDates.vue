@@ -4,10 +4,10 @@
 
         <div id="dates" class="d-flex flex-column align-items-center">
             <div class="date">
-                <span @click="openClose()">&plus;</span>
+                <span @click="changeActive(item)">&plus;</span>
                 <h5>17/07/2020 GEM FESTIVAL 2020 ANAKALIA, GEORGIA</h5>
 
-                <div ref="myDiv" class="d-none d-flex extra">
+                <div v-if="dates.active" class="d-flex extra">
                     <div>
                         <img src="../assets/map.png" alt="">
                     </div>
@@ -18,24 +18,79 @@
                             dolorum sed exercitationem.</p>
                         <a href="">BOOK NOW</a>
                     </div>
-
                 </div>
             </div>
+
             <div class="date">
-                <span>&plus;</span>
+                <span @click="openClose()">&plus;</span>
                 <h5>24/09/2020 GROOVEFEST DOMINICAL REPUBLIC</h5>
+
+                <div v-if="showMore" class="d-flex extra">
+                    <div>
+                        <img src="../assets/map.png" alt="">
+                    </div>
+                    <div class="extra_info">
+                        <h4>Untold Stories</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
+                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
+                            dolorum sed exercitationem.</p>
+                        <a href="">BOOK NOW</a>
+                    </div>
+                </div>
             </div>
+
             <div class="date">
-                <span>&plus;</span>
+                <span @click="openClose()">&plus;</span>
                 <h5>31/10/2020 OASIS FESTIVAL 2020 MARRAKECH, MOROCCO</h5>
+
+                <div v-if="showMore" class="d-flex extra">
+                    <div>
+                        <img src="../assets/map.png" alt="">
+                    </div>
+                    <div class="extra_info">
+                        <h4>Untold Stories</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
+                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
+                            dolorum sed exercitationem.</p>
+                        <a href="">BOOK NOW</a>
+                    </div>
+                </div>
             </div>
+
             <div class="date">
-                <span>&plus;</span>
+                <span @click="openClose()">&plus;</span>
                 <h5>07/11/2020 MOGA FESTIVAL - ESSAOURIA, MOROCCO</h5>
+                
+                <div v-if="showMore" class="d-flex extra">
+                    <div>
+                        <img src="../assets/map.png" alt="">
+                    </div>
+                    <div class="extra_info">
+                        <h4>Untold Stories</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
+                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
+                            dolorum sed exercitationem.</p>
+                        <a href="">BOOK NOW</a>
+                    </div>
+                </div>
             </div>
+
             <div class="date">
-                <span>&plus;</span>
+                <span @click="openClose()">&plus;</span>
                 <h5>10/12/2020 ENVISION FESTIVAL - UVITA, COSTA RICA</h5>
+
+                <div v-if="dates.active" class="d-flex extra">
+                    <div>
+                        <img src="../assets/map.png" alt="">
+                    </div>
+                    <div class="extra_info">
+                        <h4>Untold Stories</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
+                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
+                            dolorum sed exercitationem.</p>
+                        <a href="">BOOK NOW</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -55,24 +110,45 @@ export default {
     },
     data() {
         return {
+            dates : [
+                {
+                    name: "Georgia",
+                    active: false
+                },
+                {
+                    name: "Dominical Republic",
+                    active: false
+                },
+                {
+                    name: "Morocco",
+                    active: false
+                },
+                {
+                    name: "Morocco",
+                    active: false
+                },
+                {
+                    name: "Costa Rica",
+                    active: false
+                }
+            ],
             showMore: false
-
         }
     },
     methods: {
         openClose() {
-            if (this.$refs.myDiv.classList[0]==="d-none") {
-                this.$refs.myDiv.remove("d-none");
-                this.$refs.myDiv.add("d-block");
+            if (this.showMore === false) {
+                this.showMore = true;
             } else {
-                this.$refs.myDiv.add("d-none");
+                this.showMore = false;
             }
-            // if (this.showMore == false) {
-            //     this.showMore == true;
-            // } else {
-            //     this.showMore == false;
-            // }
-        }
+        },
+        // changeActive(item) {
+        //     this.dates.forEach(element => {
+        //         element.active = false;
+        //     });
+        //     this.item = true;
+        // }
     }
 }
 </script>
