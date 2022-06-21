@@ -3,83 +3,11 @@
         <MusicIsLife title="Live Dates" />
 
         <div id="dates" class="d-flex flex-column align-items-center">
-            <div class="date">
+            <div class="date" v-for="(item, i) in dates" :key="i">
                 <span @click="changeActive(item)">&plus;</span>
-                <h5>17/07/2020 GEM FESTIVAL 2020 ANAKALIA, GEORGIA</h5>
+                <h5>{{ item.name }}</h5>
 
-                <div v-if="dates.active" class="d-flex extra">
-                    <div>
-                        <img src="../assets/map.png" alt="">
-                    </div>
-                    <div class="extra_info">
-                        <h4>Untold Stories</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
-                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
-                            dolorum sed exercitationem.</p>
-                        <a href="">BOOK NOW</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="date">
-                <span @click="openClose()">&plus;</span>
-                <h5>24/09/2020 GROOVEFEST DOMINICAL REPUBLIC</h5>
-
-                <div v-if="showMore" class="d-flex extra">
-                    <div>
-                        <img src="../assets/map.png" alt="">
-                    </div>
-                    <div class="extra_info">
-                        <h4>Untold Stories</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
-                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
-                            dolorum sed exercitationem.</p>
-                        <a href="">BOOK NOW</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="date">
-                <span @click="openClose()">&plus;</span>
-                <h5>31/10/2020 OASIS FESTIVAL 2020 MARRAKECH, MOROCCO</h5>
-
-                <div v-if="showMore" class="d-flex extra">
-                    <div>
-                        <img src="../assets/map.png" alt="">
-                    </div>
-                    <div class="extra_info">
-                        <h4>Untold Stories</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
-                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
-                            dolorum sed exercitationem.</p>
-                        <a href="">BOOK NOW</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="date">
-                <span @click="openClose()">&plus;</span>
-                <h5>07/11/2020 MOGA FESTIVAL - ESSAOURIA, MOROCCO</h5>
-                
-                <div v-if="showMore" class="d-flex extra">
-                    <div>
-                        <img src="../assets/map.png" alt="">
-                    </div>
-                    <div class="extra_info">
-                        <h4>Untold Stories</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae adipisci non
-                            eius, culpa eaque, doloremque suscipit, debitis soluta voluptate necessitatibus voluptatibus
-                            dolorum sed exercitationem.</p>
-                        <a href="">BOOK NOW</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="date">
-                <span @click="openClose()">&plus;</span>
-                <h5>10/12/2020 ENVISION FESTIVAL - UVITA, COSTA RICA</h5>
-
-                <div v-if="dates.active" class="d-flex extra">
+                <div v-if="item.active" class="d-flex extra">
                     <div>
                         <img src="../assets/map.png" alt="">
                     </div>
@@ -110,25 +38,25 @@ export default {
     },
     data() {
         return {
-            dates : [
+            dates: [
                 {
-                    name: "Georgia",
+                    name: "17/07/2020 GEM FESTIVAL 2020 ANAKALIA, GEORGIA",
                     active: false
                 },
                 {
-                    name: "Dominical Republic",
+                    name: "24/09/2020 GROOVEFEST DOMINICAL REPUBLIC",
                     active: false
                 },
                 {
-                    name: "Morocco",
+                    name: "31/10/2020 OASIS FESTIVAL 2020 MARRAKECH, MOROCCO",
                     active: false
                 },
                 {
-                    name: "Morocco",
+                    name: "07/11/2020 MOGA FESTIVAL - ESSAOURIA, MOROCCO",
                     active: false
                 },
                 {
-                    name: "Costa Rica",
+                    name: "10/12/2020 ENVISION FESTIVAL - UVITA, COSTA RICA",
                     active: false
                 }
             ],
@@ -136,19 +64,13 @@ export default {
         }
     },
     methods: {
-        openClose() {
-            if (this.showMore === false) {
-                this.showMore = true;
+        changeActive(item) {
+            if (item.active === false) {
+                item.active = true;
             } else {
-                this.showMore = false;
+                item.active = false;
             }
-        },
-        // changeActive(item) {
-        //     this.dates.forEach(element => {
-        //         element.active = false;
-        //     });
-        //     this.item = true;
-        // }
+        }
     }
 }
 </script>
@@ -159,8 +81,6 @@ export default {
     background-color: #252a33;
 
     #dates {
-
-        // width: 80%;
         .date {
             background-color: #323844;
             width: 65%;
